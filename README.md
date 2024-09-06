@@ -2,10 +2,37 @@
 
 ## Premessa
 
+Questa Demo è volta a dimostrare la funzionalità dell'`horizontal pod autoscaler` e della `failure recovery` dei cluster Kubernetes (K8s).
+
 ## Cosa faremo
+
+Creeremo un cluster Kubernetes con `apache` http server e lo porremo sotto stress per testare le funzionalità di adattamento di Kubernetes al traffico rete ed eventuali crash dell'applicazione.
 
 ## Creazione del cluster
 
+Di seguito le alternative: usiamo un cloud provider oppure in locale con k3d/minikube.
+
+### Creazione del cluster su un vero Cloud Provider (Civo)
+Usiamo la CLI:
+```bash
+~  $ civo kubernetes create linuxday --cluster-type=talos --nodes=2 --region=lon1
+The cluster linuxday (67d7e831-579a-4185-abe4-689ac698199f) has been created
+```
+Recuperiamo il `kubeconfig` e puntiamo al cluster:
+```bash
+~  $ civo kubernetes config linuxday --region=lon1 > ~/.kube/config_linuxday
+~  $ export KUBECONFIG=~/.kube/config_linuxday
+```
+Aggiungiamo un alias per comodità e testiamo la connessione al cluster:
+```bash
+~  $ alias k='kubectl'
+~  $ k get ns
+NAME              STATUS   AGE
+default           Active   2m26s
+kube-node-lease   Active   2m26s
+kube-public       Active   2m26s
+kube-system       Active   2m26s
+```
 
 ## Installazione del `metrics-server`
 
@@ -50,6 +77,7 @@ kubectl run -i --tty load-generator --rm --image=busybox:1.28 --restart=Never --
 ```
 
 ## Test di recovery
+TODO
 
 Proviamo ad cancellare il pod
 ```bash
