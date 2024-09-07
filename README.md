@@ -139,14 +139,18 @@ php-apache-deployment-5bdbb8dbf8-8nxpn   1/1     Running   0          3m28s
 php-apache-deployment-5bdbb8dbf8-tr7m9   1/1     Running   0          3m13s
 php-apache-deployment-5bdbb8dbf8-hdbtr   1/1     Running   0          3m13s
 ```
-Se stoppiamo con Ctrl+C il processo che genera il carico:
+Se stoppiamo con Ctrl+C il processo che genera il carico, dopo un certo tempo, i pod vengono nuovamente scalati ad 1 replica:
 ```bash
-
+$ k get hpa -w
+NAME             REFERENCE                          TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+php-apache-hpa   Deployment/php-apache-deployment   3%/50%    1         10        10         38m
+php-apache-hpa   Deployment/php-apache-deployment   0%/50%    1         10        10         38m
+php-apache-hpa   Deployment/php-apache-deployment   0%/50%    1         10        10         39m
+php-apache-hpa   Deployment/php-apache-deployment   0%/50%    1         10        1          39m
 ```
 ## Test di recovery
-TODO
 
-Proviamo ad cancellare i pod
+Proviamo ad cancellare i pod:
 ```bash
 ~  $ kubectl get pods --no-headers | awk '{print $1}' | xargs -I {} kubectl delete pod {}.
 ```
