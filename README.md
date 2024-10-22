@@ -152,7 +152,7 @@ php-apache-hpa   Deployment/php-apache-deployment   0%/50%    1         10      
 
 Proviamo ad cancellare i pod:
 ```bash
-~  $ kubectl get pods --no-headers | awk '{print $1}' | xargs -I {} kubectl delete pod {}.
+~  $ kubectl get pods --no-headers | awk '{print $1}' | xargs -I {} kubectl delete pod {}
 ```
 e vediamo come questi sono ricreati:
 ```bash
