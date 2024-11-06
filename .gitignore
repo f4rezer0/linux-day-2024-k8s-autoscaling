@@ -45,9 +45,6 @@ e2e/*.map
 *.log.*
 *.sig
 
-pkg/
-src/
-
 ### Django ###
 *.pot
 *.pyc
@@ -376,9 +373,6 @@ fabric.properties
 # https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij
 .idea/**/azureSettings.xml
 
-### Java ###
-# Compiled class file
-*.class
 
 # Log file
 
@@ -388,19 +382,9 @@ fabric.properties
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
-# Package Files #
-*.war
-*.nar
-*.ear
-*.tar.gz
-*.rar
-
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
-
-### Linux ###
-*~
 
 # temporary files which can be created if a process still has a handle open of a deleted file
 .fuse_hidden*
