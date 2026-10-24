@@ -1,3 +1,6 @@
+> **Repository archiviato.** I materiali sono stati spostati in
+> [f4rezer0/talks-and-demos/linux_day_2024/k8s_autoscaling](https://github.com/f4rezer0/talks-and-demos/tree/main/linux_day_2024/k8s_autoscaling).
+
 # Scalabilità  e Resilienza in Kubernetes: come le app Cloud-Native si auto adattano al carico e rinascono dalle ceneri
 
 ## Premessa
